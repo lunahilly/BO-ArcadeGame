@@ -3,16 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-<<<<<<< HEAD
-  tags:
-  - bolletje
-  - fruit
-  - power-up
-  - ghost
-  - pacman
-=======
   tags: []
->>>>>>> f9c1c166c3d28aa78cf2866bd1ffc255aa96d7bc
   layers:
   - Default
   - TransparentFX
