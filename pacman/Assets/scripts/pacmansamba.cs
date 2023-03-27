@@ -35,5 +35,25 @@ public class pacmansamba : MonoBehaviour
         {
             rb.MovePosition(transform.position + Vector3.down * speed * Time.deltaTime);
         }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            rb.MovePosition(transform.position + Vector3.left * speed * Time.deltaTime);
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            rb.MovePosition(transform.position + Vector3.right * speed * Time.deltaTime);
+        }
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            rb.MovePosition(transform.position + Vector3.up * speed * Time.deltaTime);
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            rb.MovePosition(transform.position + Vector3.down * speed * Time.deltaTime);
+        }
     }
 }
