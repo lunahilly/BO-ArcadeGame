@@ -12,7 +12,7 @@ public class CrayonSong : MonoBehaviour
     {
         if (eat.PowerUp == true)
         {
-            GameObject.FindGameObjectsWithTag("ghost").GetComponent<Renderer>().material.color = new Color(0, 204, 102);
+            //GameObject.FindGameObjectsWithTag("ghost").GetComponent<Renderer>().material.color = new Color(0, 204, 102);
     
         }
     }
