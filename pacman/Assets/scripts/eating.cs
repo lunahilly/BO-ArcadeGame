@@ -73,6 +73,7 @@ public class eating : MonoBehaviour
     {
         PowerUp = true;
         yield return new WaitForSeconds(time);
+        PowerUp= false;
     }
 }
 

@@ -9,6 +9,7 @@ TagManager:
   - power-up
   - ghost
   - pacman
+  - blinky
   layers:
   - Default
   - TransparentFX

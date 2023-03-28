@@ -40,3 +40,8 @@ public class deathwalts : MonoBehaviour
     }
         // Vernietig het spelobject
 }
+
+
+//     [SerializeField] Color customColor = new Color(0.4f, 0.9f, 0.7f, 1.0f);
+//            var Renderer = GetComponent<Renderer>();
+//            Renderer.material.SetColor("_Color", customColor);

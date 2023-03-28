@@ -5,16 +5,20 @@ using UnityEngine;
 public class CrayonSong : MonoBehaviour
 {
     public eating eat;
-    public Material material;
+    Color colour = new Color32(114, 76, 255, 0);
+    [SerializeField] Color customColor = new Color(0.4f, 0.9f, 0.7f, 1.0f);
     void Update()
     {
         if (eat.PowerUp == true)
         {
-            Debug.Log("poweruped");
-            //GameObject.FindGameObjectsWithTag("ghost").GetComponent<Renderer>().material.color = new Color(0, 204, 102);
-            //gameObject.GetComponent<Renderer>().material.color = Color.blue;
-            material.color = Color.blue;
-
+            var Renderer = GetComponent<Renderer>();
+            Color Color = new Color32(0,0,255,1);
+            Renderer.material.SetColor("_Color", Color);
+        }
+        if (eat.PowerUp == false)
+        {
+            var Renderer = GetComponent<Renderer>();
+            Renderer.material.SetColor("_Color", customColor);
         }
     }
 }
