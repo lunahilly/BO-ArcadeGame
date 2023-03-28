@@ -11,10 +11,10 @@ public class deathwalts : MonoBehaviour
 
     public GameObject canvas;
     public GameObject plane;
-    public eating eat;
     public Material material;
     public GameObject highscore;
     public GameObject button;
+    [SerializeField] eating eat;
 
     private void Start()
     {
@@ -26,22 +26,17 @@ public class deathwalts : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))    // Als de speler tegen een PowerUp botst
         {
-            if(eat.PowerUp == false)
+            if (eat.PowerUp == false)
             {
-              //  Destroy(collision.transform.gameObject);
+                //  Destroy(collision.transform.gameObject);
                 System.Threading.Thread.Sleep(500);
                 canvas.SetActive(true);
                 plane.SetActive(true);
                 button.SetActive(true);
                 highscore.SetActive(false);
+                Debug.Log("not powered");
             }
         }
-
-        if(eat.PowerUp==true)
-        {
-            material.color = Color.blue;
-        }
-
-        // Vernietig het spelobject
     }
+        // Vernietig het spelobject
 }

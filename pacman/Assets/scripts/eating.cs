@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 
 public class eating : MonoBehaviour
 {
@@ -11,13 +11,21 @@ public class eating : MonoBehaviour
     public int score = 0;
     public TMP_Text text;
     public bool PowerUp = false;
-
-
+    public int wait;
+    private int ghosts = 4;
 
 
     void SetScore()
     {
         text.text = "highscore: " + score;
+    }
+
+    private void Update()
+    {
+        if (ghosts == 0 || score == 1590)
+        {
+            SceneManager.LoadScene("GameWin");
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -41,30 +49,31 @@ public class eating : MonoBehaviour
             Destroy(collision.transform.gameObject);
             score += 50;
             SetScore();
-            PowerUpCountdown();
+            Debug.Log("Powered up");
+            Waiting();
         }
 
         if (collision.gameObject.CompareTag("ghost"))    // Als de speler tegen een PowerUp botst
         {
             if (PowerUp == true)
             {
-                //Destroy(collision.transform.gameObject);
+                Waiting();
+                Destroy(collision.transform.gameObject);
                 score += 200;
                 SetScore();
+                ghosts =- 1;
             }
-            
         }
-        // Vernietig het spelobject
     }
-    private IEnumerator PowerUpCountdown()
+    public void Waiting()
     {
-        yield return new WaitForSeconds(20.0f);
-        PowerUp= true;
-        
+        StartCoroutine(PowerUpCountdown(wait));
     }
-
-
-    
+    private IEnumerator PowerUpCountdown(float time)
+    {
+        PowerUp = true;
+        yield return new WaitForSeconds(time);
+    }
 }
 
 
