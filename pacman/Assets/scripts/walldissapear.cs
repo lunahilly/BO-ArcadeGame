@@ -20,7 +20,8 @@ public class walldissapear : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (eat.ghosts == 0 || eating.score == PuntenNodig)
+        
+        if (eat.ghosts == 0 || eating.score == PuntenNodig || eating.score > PuntenNodig)
         {
             wall.SetActive(false);
         }

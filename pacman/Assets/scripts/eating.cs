@@ -4,20 +4,34 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Threading;
+using Unity.VisualScripting;
 
 public class eating : MonoBehaviour
 {
     // Start is called before the first frame update
     public static int score = 0;
     public TMP_Text text;
+    public TMP_Text Countdown;
+    public GameObject canvas;
     public bool PowerUp = false;
     public int wait;
     public int ghosts = 4;
+    float timer;
+    
 
-
+    
     void SetScore()
     {
-        text.text = "highscore: " + eating.score;
+        text.text = "Highscore: " + eating.score;
+    }
+    void SetTime()
+    {
+        Countdown.text = "Time Left: " + timer + " seconds";
+    }
+    private void Start()
+    {
+        canvas.SetActive(false);
     }
 
 
@@ -56,6 +70,10 @@ public class eating : MonoBehaviour
                 SetScore();
                 ghosts =- 1;
             }
+            if (PowerUp == false)
+            { 
+                Destroy(gameObject);
+            }
         }
     }
     public void Waiting()
@@ -64,9 +82,20 @@ public class eating : MonoBehaviour
     }
     private IEnumerator PowerUpCountdown(float time)
     {
+        timer = time;
+        canvas.SetActive(true);
         PowerUp = true;
-        yield return new WaitForSeconds(time);
+        while (timer > 0 || timer == 0)
+        {
+            Countdown.text = "Time Left: " + timer + " seconds";
+            Debug.Log(timer);
+            yield return new WaitForSeconds(1.0f);
+            timer--;
+        }
         PowerUp= false;
+        canvas.SetActive(false);
+
+
     }
 }
 

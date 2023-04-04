@@ -8,12 +8,14 @@ public class RestartButton : MonoBehaviour
 {
     // Start is called before the first frame update
     
+    
     // Update is called once per frame
     public void button()
     {
         
             Debug.Log("button pressed");
             Debug.Log("restarting");
+            eating.score= 0;
 
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene("GameScene");

@@ -21,6 +21,11 @@ public class deathwalts : MonoBehaviour
                 //  Destroy(collision.transform.gameObject);
                 SceneManager.LoadScene("GameOver");
             }
+            if (eat.PowerUp == true)
+            {
+                //  Destroy(collision.transform.gameObject);
+                Destroy(gameObject);
+            }
         }
     }
         // Vernietig het spelobject

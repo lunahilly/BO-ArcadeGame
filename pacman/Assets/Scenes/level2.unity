@@ -5249,7 +5249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7839707169114326593, guid: 8c0c87cc5fc754248903cdc3dd5c84c5, type: 3}
       propertyPath: PuntenNodig
-      value: 0
+      value: 2500
       objectReference: {fileID: 0}
     - target: {fileID: 7839707169114326602, guid: 8c0c87cc5fc754248903cdc3dd5c84c5, type: 3}
       propertyPath: text
