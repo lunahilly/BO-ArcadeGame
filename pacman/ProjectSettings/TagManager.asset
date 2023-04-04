@@ -10,6 +10,7 @@ TagManager:
   - ghost
   - pacman
   - blinky
+  - wally
   layers:
   - Default
   - TransparentFX

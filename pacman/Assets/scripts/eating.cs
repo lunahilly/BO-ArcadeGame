@@ -8,46 +8,39 @@ using UnityEngine.SceneManagement;
 public class eating : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int score = 0;
+    public static int score = 0;
     public TMP_Text text;
     public bool PowerUp = false;
     public int wait;
-    private int ghosts = 4;
+    public int ghosts = 4;
 
 
     void SetScore()
     {
-        text.text = "highscore: " + score;
+        text.text = "highscore: " + eating.score;
     }
 
-    private void Update()
-    {
-        if (ghosts == 0 || score == 1590)
-        {
-            SceneManager.LoadScene("GameWin");
-        }
-    }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("bolletje"))    // Als de speler tegen een PowerUp botst
         {
             Destroy(collision.transform.gameObject);
-            score += 10;
+            eating.score += 10;
             SetScore();
         }
 
         if (collision.gameObject.CompareTag("fruit"))    // Als de speler tegen een PowerUp botst
         {
             Destroy(collision.transform.gameObject);
-            score += 50;
+            eating.score += 50;
             SetScore();
         }
 
         if (collision.gameObject.CompareTag("power-up"))    // Als de speler tegen een PowerUp botst
         {
             Destroy(collision.transform.gameObject);
-            score += 50;
+            eating.score += 50;
             SetScore();
             Debug.Log("Powered up");
             Waiting();
@@ -59,7 +52,7 @@ public class eating : MonoBehaviour
             {
                 Waiting();
                 Destroy(collision.transform.gameObject);
-                score += 200;
+                eating.score += 200;
                 SetScore();
                 ghosts =- 1;
             }

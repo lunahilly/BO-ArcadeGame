@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class pacmansamba : MonoBehaviour
     // Start is called before the first frame update
 
     public Rigidbody rb;
-    public int speed;
+    public float speed;
     void Start()
     {
         rb= GetComponent<Rigidbody>();

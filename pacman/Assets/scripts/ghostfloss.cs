@@ -12,10 +12,6 @@ public class ghostfloss : MonoBehaviour
     [SerializeField] float speed = 1f;
     public bool yes = true;
 
-    private void Start()
-    {
-        Debug.Log("hello world");
-    }
 
     private void Update()
     {
