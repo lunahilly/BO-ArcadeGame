@@ -11,6 +11,9 @@ TagManager:
   - pacman
   - blinky
   - wally
+  - pinky
+  - inky
+  - clyde
   layers:
   - Default
   - TransparentFX

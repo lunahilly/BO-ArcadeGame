@@ -18,7 +18,10 @@ public class eating : MonoBehaviour
     public int wait;
     public int ghosts = 4;
     float timer;
-    
+    public GameObject clyde;
+    public GameObject pinky;
+    public GameObject inky;
+    public GameObject blinky;
 
     
     void SetScore()
@@ -32,6 +35,10 @@ public class eating : MonoBehaviour
     private void Start()
     {
         canvas.SetActive(false);
+        clyde.SetActive(false);
+        inky.SetActive(false);
+        pinky.SetActive(false);
+        blinky.SetActive(false);
     }
 
 
@@ -60,18 +67,63 @@ public class eating : MonoBehaviour
             Waiting();
         }
 
-        if (collision.gameObject.CompareTag("ghost"))    // Als de speler tegen een PowerUp botst
+        if (collision.gameObject.CompareTag("blinky"))    // Als de speler tegen een PowerUp botst
         {
             if (PowerUp == true)
             {
-                Waiting();
-                Destroy(collision.transform.gameObject);
+                Destroy(GameObject.FindWithTag("blinky"));
+                blinky.SetActive(true);
                 eating.score += 200;
                 SetScore();
                 ghosts =- 1;
             }
             if (PowerUp == false)
             { 
+                Destroy(gameObject);
+            }
+        }
+        if (collision.gameObject.CompareTag("pinky"))    // Als de speler tegen een PowerUp botst
+        {
+            if (PowerUp == true)
+            {
+                Destroy(GameObject.FindWithTag("pinky"));
+                pinky.SetActive(true);
+                eating.score += 200;
+                SetScore();
+                ghosts = -1;
+            }
+            if (PowerUp == false)
+            {
+                Destroy(gameObject);
+            }
+        }
+        if (collision.gameObject.CompareTag("inky"))    // Als de speler tegen een PowerUp botst
+        {
+            if (PowerUp == true)
+            {
+                Destroy(GameObject.FindWithTag("inky"));
+                inky.SetActive(true);
+                eating.score += 200;
+                SetScore();
+                ghosts = -1;
+            }
+            if (PowerUp == false)
+            {
+                Destroy(gameObject);
+            }
+        }
+        if (collision.gameObject.CompareTag("clyde"))    // Als de speler tegen een PowerUp botst
+        {
+            if (PowerUp == true)
+            {
+                Destroy(GameObject.FindWithTag("clyde"));
+                clyde.SetActive(true);
+                eating.score += 200;
+                SetScore();
+                ghosts = -1;
+            }
+            if (PowerUp == false)
+            {
                 Destroy(gameObject);
             }
         }
@@ -99,5 +151,7 @@ public class eating : MonoBehaviour
     }
 }
 
+
+//Destroy (GameObject.FindWithTag("gameMenu"));
 
 

@@ -30,6 +30,11 @@ public class ghostfloss : MonoBehaviour
         }
 
         transform.position = Vector3.MoveTowards(transform.position, waypoints[currentWaypointIndex].transform.position, speed * Time.deltaTime);
+
+        if (eating.score > 2500)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, waypoints[currentWaypointIndex].transform.position, 2 * Time.deltaTime);
+        }
     }
 
     public void MovingStart()
