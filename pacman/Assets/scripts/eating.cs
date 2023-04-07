@@ -22,7 +22,8 @@ public class eating : MonoBehaviour
     public GameObject pinky;
     public GameObject inky;
     public GameObject blinky;
-
+    public GameObject hinky;
+    public int powerdown;
     
     void SetScore()
     {
@@ -39,6 +40,7 @@ public class eating : MonoBehaviour
         inky.SetActive(false);
         pinky.SetActive(false);
         blinky.SetActive(false);
+        hinky.SetActive(false);
     }
 
 
@@ -127,10 +129,24 @@ public class eating : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        if (collision.gameObject.CompareTag("hinky"))    // Als de speler tegen een PowerUp botst
+        {
+            Destroy(gameObject);
+            SceneManager.LoadScene("GameOver");
+        }
+        if (collision.gameObject.CompareTag("power-down"))    // Als de speler tegen een PowerUp botst
+        {
+            power();
+            Destroy(collision.transform.gameObject);
+        }
     }
     public void Waiting()
     {
         StartCoroutine(PowerUpCountdown(wait));
+    }
+    public void power()
+    {
+        StartCoroutine(PowerDown(powerdown));
     }
     private IEnumerator PowerUpCountdown(float time)
     {
@@ -146,8 +162,12 @@ public class eating : MonoBehaviour
         }
         PowerUp= false;
         canvas.SetActive(false);
-
-
+    }
+    private IEnumerator PowerDown(float time) 
+    {
+        hinky.SetActive(true);
+        yield return new WaitForSeconds(time);
+        hinky.SetActive(false);
     }
 }
 
